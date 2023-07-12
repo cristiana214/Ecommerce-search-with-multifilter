@@ -7,7 +7,7 @@ interface Props {
 }
 
 const MainLayout = ({ children, className }: Props) => (
-  <div className={`relative min-h-full ${className}`}>
+  <div className={` min-h-full relative  ${className}`}>
     <header className="flex relative flex-wrap justify-between items-center py-3 px-0 leading-6 bg-green-800 md:flex-nowrap md:justify-start box-border text-neutral-800">
       <nav
         className="flex justify-between items-center px-3 mx-auto w-full box-border md:flex-nowrap"
