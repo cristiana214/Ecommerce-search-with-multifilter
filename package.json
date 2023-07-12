@@ -9,21 +9,18 @@
     "lint": "next lint",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "prepare": "husky install"
-    
   },
   "lint-staged": {
-		"./src/**/*.{ts,js,jsx,tsx}": [
-			"eslint --ignore-path .gitignore --fix",
-			"prettier --ignore-path .gitignore --write"
-		]
-	},
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "prettier --ignore-path .gitignore --write"
+    ]
+  },
   "dependencies": {
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
-    "eslint-config-next": "13.4.9",
     "next": "13.4.9",
     "postcss": "8.4.25",
     "react": "18.2.0",
@@ -32,6 +29,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "eslint-config-next": "^13.4.9",
     "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3",
