@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <MainLayout>
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 ">
         <GridItemSix className="h-full bg-blue-900 py-4">
           <div className="w-200 items-center justify-between px-8  py-8">
             <h1 className="font-size- py-8 text-4xl font-bold leading-9 text-white text-opacity-100">
@@ -38,13 +38,13 @@ export default function Home() {
             <div className="w-200  bg-slate-800 "> product</div>
           </div>
         </GridItemSix>
-        <GridItemSix className="bg-green-500">
+        <GridItemSix className="bg-slate-500">
           <div className="h-half items-center  justify-between ">
             <p>amet consectetur adipisicing elit.</p>
             <div className="w-200  bg-slate-800 "> product</div>
           </div>
         </GridItemSix>
-        <GridItemSix className="bg-green-500">
+        <GridItemSix className="bg-indigo-900">
           <div className="h-half items-center  justify-between ">
             <p>amet consectetur adipisicing elit.</p>
             <div className="w-200  bg-slate-800 "> product</div>
