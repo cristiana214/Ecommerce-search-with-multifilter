@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import MainLayout from "@/components/MainLayout";
-import { GridItemFour, GridItemSix } from "@/components/GridLayout";
+import {
+  GridItemEight,
+  GridItemFour,
+  GridItemSix,
+} from "@/components/GridLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,6 +42,65 @@ export default function Home() {
             <div className="w-200  bg-slate-800 "> product</div>
           </div>
         </GridItemSix>
+        <GridItemEight className="w-200 items-center justify-between px-8 py-8">
+          {" "}
+          Categories
+          <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left bg-cyan-600 ">
+            <div className="">
+              <h2 className={`mb-3 text-2xl font-semibold`}>
+                Docs{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                Find in-depth information about Next.js features and API.
+              </p>
+            </div>
+            <div className="">
+              <h2 className={`mb-3 text-2xl font-semibold`}>
+                Docs{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                Find in-depth information about Next.js features and API.
+              </p>
+            </div>
+
+            <div className="">
+              <h2 className={`mb-3 text-2xl font-semibold`}>
+                Docs{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                Find in-depth information about Next.js features and API.
+              </p>
+            </div>
+
+            <div className="">
+              <h2 className={`mb-3 text-2xl font-semibold`}>
+                Docs{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                  -&gt;
+                </span>
+              </h2>
+              <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                Find in-depth information about Next.js features and API.
+              </p>
+            </div>
+
+            <div className="">
+              <h2 className="mb-3 text-2xl font-semibold">Docs </h2>
+              <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                Find in-depth information about Next.js features and API.
+              </p>
+            </div>
+          </div>
+        </GridItemEight>
         <GridItemSix className="bg-slate-500">
           <div className="h-half items-center  justify-between ">
             <p>amet consectetur adipisicing elit.</p>
