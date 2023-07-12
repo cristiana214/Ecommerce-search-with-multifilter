@@ -7,14 +7,14 @@ interface Props {
 }
 
 const MainLayout = ({ children, className }: Props) => (
-  <div className={` min-h-full relative  ${className}`}>
-    <header className="flex relative flex-wrap justify-between items-center py-3 px-0 leading-6 bg-green-800 md:flex-nowrap md:justify-start box-border text-neutral-800">
+  <div className={` relative min-h-full  ${className}`}>
+    <header className="relative box-border flex flex-wrap items-center justify-between bg-green-800 px-0 py-3 leading-6 text-neutral-800 md:flex-nowrap md:justify-start">
       <nav
-        className="flex justify-between items-center px-3 mx-auto w-full box-border md:flex-nowrap"
         aria-label="Main navigation"
+        className="mx-auto box-border flex w-full items-center justify-between px-3 md:flex-nowrap"
       >
         <Link
-          className="p-0 mr-2 text-xl leading-7 text-white whitespace-nowrap cursor-pointer box-border hover:text-white focus:text-white"
+          className="mr-2 box-border cursor-pointer whitespace-nowrap p-0 text-xl leading-7 text-white hover:text-white focus:text-white"
           href="/"
           style={{ textDecoration: "none" }}
         >
@@ -22,7 +22,7 @@ const MainLayout = ({ children, className }: Props) => (
             xmlns="http://www.w3.org/2000/svg"
             width={40}
             height={32}
-            className="block my-1 align-middle box-border"
+            className="my-1 box-border block align-middle"
             viewBox="0 0 118 94"
             role="img"
           >
@@ -37,7 +37,7 @@ const MainLayout = ({ children, className }: Props) => (
           </svg>
         </Link>
         <button
-          className="p-0 m-0 text-xl leading-none text-center text-white normal-case bg-transparent rounded border-0 border-white border-solid cursor-pointer md:hidden box-border"
+          className="m-0 box-border cursor-pointer rounded border-0 border-solid border-white bg-transparent p-0 text-center text-xl normal-case leading-none text-white md:hidden"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#bdNavbar"
@@ -50,7 +50,7 @@ const MainLayout = ({ children, className }: Props) => (
             xmlns="http://www.w3.org/2000/svg"
             width={32}
             height={32}
-            className="leading-5 align-middle box-border"
+            className="box-border align-middle leading-5"
             fill="currentColor"
             viewBox="0 0 16 16"
           >
@@ -62,19 +62,19 @@ const MainLayout = ({ children, className }: Props) => (
           </svg>
         </button>
         <div
-          className="hidden flex-grow items-center md:flex md:basis-auto box-border basis-full"
+          className="box-border hidden flex-grow basis-full items-center md:flex md:basis-auto"
           id="bdNavbar"
         >
           <ul
-            className="flex flex-row flex-wrap pt-2 pl-0 my-0 md:flex-row md:py-0 box-border"
+            className="my-0 box-border flex flex-row flex-wrap pl-0 pt-2 md:flex-row md:py-0"
             style={{ listStyle: "none" }}
           >
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <Link
-                className="block py-2 px-1 font-semibold text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 font-semibold text-white hover:text-white focus:text-white md:px-2"
                 aria-current="page"
                 href="/"
                 style={{
@@ -87,11 +87,11 @@ const MainLayout = ({ children, className }: Props) => (
               </Link>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="/docs/5.1/getting-started/introduction/"
                 style={{
                   textDecoration: "none",
@@ -103,11 +103,11 @@ const MainLayout = ({ children, className }: Props) => (
               </a>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="/docs/5.1/examples/"
                 style={{
                   textDecoration: "none",
@@ -119,11 +119,11 @@ const MainLayout = ({ children, className }: Props) => (
               </a>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="https://icons.getbootstrap.com/"
                 target="_blank"
                 rel="noopener"
@@ -137,11 +137,11 @@ const MainLayout = ({ children, className }: Props) => (
               </a>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="https://themes.getbootstrap.com/"
                 target="_blank"
                 rel="noopener"
@@ -155,11 +155,11 @@ const MainLayout = ({ children, className }: Props) => (
               </a>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="https://blog.getbootstrap.com/"
                 target="_blank"
                 rel="noopener"
@@ -174,19 +174,19 @@ const MainLayout = ({ children, className }: Props) => (
             </li>
           </ul>
           <hr
-            className="my-4 mx-0 h-px text-white border-0 opacity-25 md:hidden box-border"
+            className="mx-0 my-4 box-border h-px border-0 text-white opacity-25 md:hidden"
             style={{ backgroundColor: "currentcolor" }}
           />
           <ul
-            className="flex flex-row flex-wrap pl-0 my-0 md:ml-auto md:flex-row box-border"
+            className="my-0 box-border flex flex-row flex-wrap pl-0 md:ml-auto md:flex-row"
             style={{ listStyle: "none" }}
           >
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="https://github.com/twbs"
                 target="_blank"
                 rel="noopener"
@@ -200,7 +200,7 @@ const MainLayout = ({ children, className }: Props) => (
                   xmlns="http://www.w3.org/2000/svg"
                   width={36}
                   height={36}
-                  className="inline-block w-4 h-4 align-text-top box-border"
+                  className="box-border inline-block h-4 w-4 align-text-top"
                   viewBox="0 0 512 499.36"
                   role="img"
                   style={{ listStyle: "outside none none" }}
@@ -220,7 +220,7 @@ const MainLayout = ({ children, className }: Props) => (
                   />
                 </svg>
                 <small
-                  className="ml-2 text-sm leading-5 md:hidden box-border"
+                  className="ml-2 box-border text-sm leading-5 md:hidden"
                   style={{ listStyle: "outside none none" }}
                 >
                   GitHub
@@ -228,11 +228,11 @@ const MainLayout = ({ children, className }: Props) => (
               </a>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="https://twitter.com/getbootstrap"
                 target="_blank"
                 rel="noopener"
@@ -246,7 +246,7 @@ const MainLayout = ({ children, className }: Props) => (
                   xmlns="http://www.w3.org/2000/svg"
                   width={36}
                   height={36}
-                  className="inline-block w-4 h-4 align-text-top box-border"
+                  className="box-border inline-block h-4 w-4 align-text-top"
                   viewBox="0 0 512 416.32"
                   role="img"
                   style={{ listStyle: "outside none none" }}
@@ -265,7 +265,7 @@ const MainLayout = ({ children, className }: Props) => (
                   />
                 </svg>
                 <small
-                  className="ml-2 text-sm leading-5 md:hidden box-border"
+                  className="ml-2 box-border text-sm leading-5 md:hidden"
                   style={{ listStyle: "outside none none" }}
                 >
                   Twitter
@@ -273,11 +273,11 @@ const MainLayout = ({ children, className }: Props) => (
               </a>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="https://bootstrap-slack.herokuapp.com/"
                 target="_blank"
                 rel="noopener"
@@ -291,7 +291,7 @@ const MainLayout = ({ children, className }: Props) => (
                   xmlns="http://www.w3.org/2000/svg"
                   width={36}
                   height={36}
-                  className="inline-block w-4 h-4 align-text-top box-border"
+                  className="box-border inline-block h-4 w-4 align-text-top"
                   viewBox="0 0 512 512"
                   role="img"
                   style={{ listStyle: "outside none none" }}
@@ -316,7 +316,7 @@ const MainLayout = ({ children, className }: Props) => (
                   />
                 </svg>
                 <small
-                  className="ml-2 text-sm leading-5 md:hidden box-border"
+                  className="ml-2 box-border text-sm leading-5 md:hidden"
                   style={{ listStyle: "outside none none" }}
                 >
                   Slack
@@ -324,11 +324,11 @@ const MainLayout = ({ children, className }: Props) => (
               </a>
             </li>
             <li
-              className="flex-none w-1/2 text-left md:w-auto md:flex-none box-border"
+              className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
               style={{ listStyle: "outside none none" }}
             >
               <a
-                className="block py-2 px-1 text-white cursor-pointer md:px-2 box-border hover:text-white focus:text-white"
+                className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
                 href="https://opencollective.com/bootstrap"
                 target="_blank"
                 rel="noopener"
@@ -344,7 +344,7 @@ const MainLayout = ({ children, className }: Props) => (
                   height={36}
                   fill="currentColor"
                   fillRule="evenodd"
-                  className="inline-block w-4 h-4 align-text-top box-border"
+                  className="box-border inline-block h-4 w-4 align-text-top"
                   viewBox="0 0 40 41"
                   role="img"
                   style={{ listStyle: "outside none none" }}
@@ -368,7 +368,7 @@ const MainLayout = ({ children, className }: Props) => (
                   />
                 </svg>
                 <small
-                  className="ml-2 text-sm leading-5 md:hidden box-border"
+                  className="ml-2 box-border text-sm leading-5 md:hidden"
                   style={{ listStyle: "outside none none" }}
                 >
                   Open Collective
@@ -377,7 +377,7 @@ const MainLayout = ({ children, className }: Props) => (
             </li>
           </ul>
           <a
-            className="inline-block py-1 px-3 my-2 text-base font-normal leading-normal text-center align-middle bg-transparent rounded border border-transparent border-solid cursor-pointer select-none md:my-0 md:ml-4 lg:inline-block box-border hover:border-amber-200 hover:bg-amber-200 hover:text-neutral-800"
+            className="my-2 box-border inline-block cursor-pointer select-none rounded border border-solid border-transparent bg-transparent px-3 py-1 text-center align-middle text-base font-normal leading-normal hover:border-amber-200 hover:bg-amber-200 hover:text-neutral-800 md:my-0 md:ml-4 lg:inline-block"
             href="/docs/5.1/getting-started/download/"
             style={{ textDecoration: "none", transition: "none 0s ease 0s" }}
           >
