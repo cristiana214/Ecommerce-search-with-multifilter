@@ -7,6 +7,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'dummyimage.com',
+      },
+      {
+        protocol: 'https',
+        hostname: process.env.ASSETS_URL,
+      },
     ],
   }
 }
