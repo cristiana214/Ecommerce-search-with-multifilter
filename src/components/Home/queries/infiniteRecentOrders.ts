@@ -1,8 +1,7 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from "@tanstack/react-query";
 
-import { axios } from '@/lib/axios';
-import { RecentOrders } from '@/types/Orders';
-
+import { axios } from "@/lib/axios";
+import { RecentOrders } from "@/types/Orders";
 
 interface RecentOrdersResponse {
   recentOrders: RecentOrders;
@@ -15,7 +14,7 @@ const fetchRecentOrders = async ({
   count?: number;
 }) => {
   const { data } = await axios.post<RecentOrdersResponse>(
-    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT||'',
+    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "",
     {
       query: `
       query RecentOrders($count: Int!) {
@@ -36,20 +35,23 @@ const fetchRecentOrders = async ({
       }
     `,
       variables: {
-        "count": count,
+        count: count,
       },
     },
   );
   return data?.recentOrders;
 };
-export const useInfiniteRecentOrders = ({ pageSize, count }: { pageSize?: number,count: number }) =>
+export const useInfiniteRecentOrders = ({
+  pageSize,
+  count,
+}: {
+  pageSize?: number;
+  count: number;
+}) =>
   useInfiniteQuery<RecentOrders, Error>({
-    queryKey: ['recentOrders',{ pageSize, count }],
+    queryKey: ["recentOrders", { pageSize, count }],
     queryFn: (param) => {
-      return fetchRecentOrders({count:count})
+      return fetchRecentOrders({ count: count });
     },
-    getNextPageParam: (lastPage) => lastPage ? count + 1 : undefined,
+    getNextPageParam: (lastPage) => (lastPage ? count + 1 : undefined),
   });
-
-
-
