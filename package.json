@@ -35,6 +35,9 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@tanstack/react-query-devtools": "^4.29.19",
     "eslint-config-next": "^13.4.9",
     "eslint-config-prettier": "^8.8.0",
