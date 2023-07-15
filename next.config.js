@@ -19,7 +19,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: process.env.ASSETS_URL,
+        hostname: process.env.ASSETS_URL || 'localhost',
       },
     ],
   }
