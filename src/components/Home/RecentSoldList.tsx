@@ -4,7 +4,7 @@ import { Spinner } from "../UI/Spinner";
 import { BlurImage } from "../Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
 
-const HotList = ({ pageSize }: { pageSize: number }) => {
+const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
   const { data, fetchNextPage, hasNextPage, isLoading, isError, error } =
     useInfiniteRecentOrders({ count: pageSize });
 
@@ -12,7 +12,7 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
     onEnter: () => fetchNextPage(),
   });
   if (isLoading) {
-    return <Spinner size="sm" />;
+    return  <Spinner size="sm" />;
   }
 
   if (isError) {
@@ -21,30 +21,33 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
 
   const recentOrders = data?.pages.flatMap((page) => page.data) || [];
   return (
-    <div className="h-200 -m-4 flex flex-wrap ">
+    <div className="-m-2 flex flex-wrap">
       {recentOrders.map((order) => {
         return (
-          <div className="w-full rounded border-gray-900 p-4 md:w-1/2 lg:w-1/3">
-            <a className="relative block h-48 overflow-hidden  ">
+          <div className="w-full p-2 " key={order.id}>
+            <div className="flex h-full items-center rounded-lg border border-gray-500 bg-slate-800 p-4">
               <BlurImage
                 width={100}
                 height={100}
-                className="mr-4  block h-full w-full flex-shrink-0 rounded-e rounded-l bg-gray-100 object-cover object-center !duration-200 ease-out group-hover:scale-105"
+                className="mr-4 h-16 w-16 flex-shrink-0 rounded-e rounded-l bg-gray-100 object-cover object-center !duration-200 ease-out group-hover:scale-105"
                 loader={({ src }) => src}
-                src={getImageUrl({ path: order.Item.image[0], size: 374 })}
+                src={getImageUrl({ path: order.Item.image[0], size: 135 })}
                 alt={order.Item.name}
               />
-            </a>
-            <div className="mt-4">
-              <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500 ">
-                {order.Item.category}
-              </h3>
-              <h2 className="title-font text-lg font-medium text-gray-200">
-                {order.Item.name}
-              </h2>
-              <p className="mt-1">
-                {order.Item.price} {order.Item.preferredCurrency}{" "}
-              </p>
+              <div className="flex-grow">
+                <h2 className="title-font font-medium text-gray-300">
+                  {order.Item.name}
+                </h2>
+                <p className="text-gray-600">
+                  sold {order.currencyPaying} /{order.price}
+                </p>
+                <a
+                  href={`https://etherscan.io/tx/${order.txHash}`}
+                  className="text-gray-500"
+                >
+                  trx
+                </a>
+              </div>
             </div>
           </div>
         );
@@ -66,4 +69,4 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
     </div>
   );
 };
-export default HotList;
+export default RecentSoldList;
