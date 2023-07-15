@@ -12,7 +12,7 @@ const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
     onEnter: () => fetchNextPage(),
   });
   if (isLoading) {
-    return  <Spinner size="sm" />;
+    return <Spinner size="sm" />;
   }
 
   if (isError) {
@@ -25,11 +25,11 @@ const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
       {recentOrders.map((order) => {
         return (
           <div className="w-full p-2 " key={order.id}>
-            <div className="flex h-full items-center rounded-lg border border-gray-500 bg-slate-800 p-4">
+            <div className="flex h-full items-center rounded-lg border border-main-700 bg-slate-800 p-4">
               <BlurImage
                 width={100}
                 height={100}
-                className="mr-4 h-16 w-16 flex-shrink-0 rounded-e rounded-l bg-gray-100 object-cover object-center !duration-200 ease-out group-hover:scale-105"
+                className="mr-4 h-16 w-16 flex-shrink-0 rounded-e rounded-l bg-main-50 object-cover object-center !duration-200 ease-out group-hover:scale-105"
                 loader={({ src }) => src}
                 src={getImageUrl({ path: order.Item.image[0], size: 135 })}
                 alt={order.Item.name}
