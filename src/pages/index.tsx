@@ -18,7 +18,7 @@ export default function Home() {
               amet consectetur adipisicing elit. Molestias ea repellat ullam
               adipis elit.
             </h1>
-            <p className="my-1 rounded border-2 border-main-200 bg-main-100 px-8 py-16 text-main-900 ">
+            <p className="my-1 rounded-md border-2 border-main-200 bg-main-100 px-8 py-16 text-main-900 ">
               lorem ipsum dolor lorem ipsum dolorlorem ipsum dolorlorem ipsum
               dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Molestias ea repellat ullam laudantium eos possimus officia

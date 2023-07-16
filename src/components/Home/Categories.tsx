@@ -18,7 +18,7 @@ const Categories = () => {
     <div className="-m-2 flex flex-wrap">
       {categories.map((category, index) => (
         <div className="w-1/2 p-2 md:w-1/3 lg:w-1/4" key={index}>
-          <div className="flex h-full items-center rounded-lg border border-gray-500 bg-slate-900 p-4">
+          <div className="flex h-full items-center rounded-md border border-gray-500 bg-slate-900 p-4">
             <div className="flex-grow">
               <h2 className="title-font font-medium text-gray-300">
                 {category.name}

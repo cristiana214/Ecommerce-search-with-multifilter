@@ -10,7 +10,7 @@ interface Props {
 
 const MainLayout = ({ children, className }: Props) => (
   <div className={` sticky min-h-full  ${className}`}>
-    <Navbar />
+    {/* <Navbar /> */}
     <Header />
     <main className="">{children}</main>
   </div>
