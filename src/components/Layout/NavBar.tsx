@@ -2,7 +2,6 @@
 /* eslint-disable no-shadow */
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-// import { SearchIcon } from '@heroicons/react';
 import Link from "next/link";
 import Image from "next/legacy/image";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -80,10 +79,6 @@ const Navbar = () => {
                     </Link>
                   </Dialog.Panel>
                 </Transition.Child>
-                <div
-                  className="w-10 flex-shrink-0"
-                  aria-hidden="true text-slate-100"
-                ></div>
               </div>
             </Dialog>
           </Transition.Root>

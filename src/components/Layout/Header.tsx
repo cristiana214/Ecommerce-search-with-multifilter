@@ -77,7 +77,7 @@ const Header = () => {
                 </Link>
               </Dialog.Panel>
             </Transition.Child>
-            <div className="w-10 flex-shrink-0">hehe</div>
+            <div className="w-10 flex-shrink-0"></div>
           </div>
         </Dialog>
       </Transition.Root>
@@ -133,7 +133,7 @@ const Header = () => {
             style={{ listStyle: "outside none none" }}
           >
             <Link
-              className="box-border block cursor-pointer px-1 py-2 font-semibold text-white hover:text-white focus:text-white md:px-2"
+              className="box-border block cursor-pointer px-1 py-2 font-semibold text-white hover:text-main-300 focus:text-white md:px-2"
               aria-current="page"
               href="/"
               style={{
@@ -149,17 +149,17 @@ const Header = () => {
             className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
             style={{ listStyle: "outside none none" }}
           >
-            <a
-              className="box-border block cursor-pointer px-1 py-2 text-white hover:text-white focus:text-white md:px-2"
-              href="#"
+            <Link
+              className="box-border block cursor-pointer px-1 py-2 text-white hover:text-main-300 focus:text-white md:px-2"
+              href="/category/"
               style={{
                 textDecoration: "none",
                 transition: "none 0s ease 0s",
                 listStyle: "outside none none",
               }}
             >
-              Categories
-            </a>
+              Advance Filter
+            </Link>
           </li>
         </ul>
         <hr
