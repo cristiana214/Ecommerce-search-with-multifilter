@@ -1,10 +1,10 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { axios } from "@/lib/axios";
-import { PriceIndex } from "@/types/PriceIndex";
+import { PriceIndexResponse } from "@/types/PriceIndex";
 
 const fetchPriceIndex = async () => {
-  const { data } = await axios.post<PriceIndex>(
+  const { data } = await axios.post<PriceIndexResponse>(
     process.env.NEXT_PUBLIC_PRICE_INDEX_ENDPOINT || "",
     {
       query: `
@@ -28,7 +28,7 @@ const fetchPriceIndex = async () => {
   return data;
 };
 export const usePriceIndex = () =>
-  useQuery<PriceIndex, Error>({
+  useQuery<PriceIndexResponse, Error>({
     queryKey: ["priceIndex"],
     queryFn: () => {
       return fetchPriceIndex();

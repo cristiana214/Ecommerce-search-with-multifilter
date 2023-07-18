@@ -3,7 +3,7 @@ import {
   usePagination,
   UsePaginationProps,
 } from "react-instantsearch-hooks-web";
-import { ComponentProps, Dispatch, useEffect, useState } from "react";
+import { ComponentProps, useEffect, useState } from "react";
 import clsx from "clsx";
 
 export type PaginationItemProps = ComponentProps<"a"> &

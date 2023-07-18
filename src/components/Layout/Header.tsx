@@ -8,10 +8,11 @@ import usePriceIndexStore from "@/components/store/usePriceIndexStore";
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { data } = usePriceIndex();
-  const { setPriceIndexData } = usePriceIndexStore();
+  const { setPriceIndex } = usePriceIndexStore();
+
   useEffect(() => {
     if (data) {
-      setPriceIndexData(data);
+      setPriceIndex(data);
     }
   }, [data]);
 

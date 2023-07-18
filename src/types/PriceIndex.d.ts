@@ -5,11 +5,13 @@ interface PriceData {
 }
 
 export interface PriceIndex {
+  eth: PriceData;
+  usdc: PriceData;
+  ton: PriceData;
+}
+
+export interface PriceIndexResponse {
   data: {
-    priceIndex: {
-      eth: PriceData;
-      usdc: PriceData;
-      ton: PriceData;
-    };
+    priceIndex: PriceIndex;
   };
 }

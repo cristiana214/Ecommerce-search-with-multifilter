@@ -4,7 +4,7 @@ export interface Item {
   description: string;
   image: string[];
   quantity: number | null;
-  price: string;
+  price: number;
   currencyAccepting: string[];
   category: string;
   metadata: any; // Update the type according to the actual structure
@@ -23,7 +23,7 @@ export interface Item {
   listingStatus: string;
   listedAt: string;
   isDeleted: boolean;
-  preferredCurrency: string;
+  preferredCurrency: "ETH" | "USDC" | "TON";
   createdAt: string;
   updatedAt: string;
 }

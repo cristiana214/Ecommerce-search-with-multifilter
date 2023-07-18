@@ -5,6 +5,7 @@ import { BlurImage } from "@/components/Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
 import Link from "next/link";
 import { convertToURLFormat } from "@/lib/helperText";
+import Price from "../Products/Price";
 
 const HotList = ({ pageSize }: { pageSize: number }) => {
   // todo
@@ -55,9 +56,7 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
               <h2 className="title-font text-lg font-medium text-gray-200">
                 {order.Item.name}
               </h2>
-              <p className="mt-1">
-                {order.Item.price} {order.Item.preferredCurrency}{" "}
-              </p>
+              <Price item={order.Item} />
             </div>
           </div>
         );

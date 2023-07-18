@@ -6,6 +6,7 @@ import { Item } from "@/types/Orders";
 import { BlurImage } from "@/components/Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
 import { convertToURLFormat } from "@/lib/helperText";
+import Price from "@/components/Products/Price";
 
 export type ItemProps = Item & {
   itemId: number;
@@ -35,15 +36,25 @@ export const Hit = ({ hit }: { hit: ItemProps }) => (
       <div className="font-poppins line-clamp-2 text-sm font-bold text-skin-primary md:text-base">
         {hit.name}
       </div>
-      <div className="text-sm font-semibold text-skin-secondary md:text-sm">
+      {/* <div className="text-sm font-semibold text-skin-secondary md:text-sm">
         {` ${hit.price} ${hit.preferredCurrency}`}
       </div>
       <div className="text-xs font-normal text-skin-secondary md:text-xs">
         {` ${hit.price} USD`}
-      </div>
-      <div className="text-xs font-semibold text-gray-400 md:text-sm">
-        {hit.currencyAccepting}
-      </div>
+      </div> */}
+      {/* <div className="text-xs font-semibold text-gray-400 md:text-sm">
+        {hit.currencyAccepting.filter((item) => item !== hit.preferredCurrency)
+          .length > 0 && (
+          <>
+            or pay{" "}
+            {hit.currencyAccepting
+              .filter((item) => item !== hit.preferredCurrency)
+              .join(", ")}
+          </>
+        )}
+      </div> */}
+
+      <Price item={hit} />
     </Link>
   </div>
 );

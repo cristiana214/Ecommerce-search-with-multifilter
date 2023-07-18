@@ -1,21 +1,36 @@
-interface EquivalentValues {
-  eth: number;
-  usdc: number;
-  ton: number;
-}
+import usePriceIndexStore from "@/components/store/usePriceIndexStore";
 
-export function calculateEquivalentValues(usdValue: number): EquivalentValues {
-  const exchangeRates = {
-    eth: 1893.68,
-    usdc: 0.999193,
-    ton: 1.4,
-  };
+/**
+ * Convert a value from USD to the specified currency using the price index.
+ *
+ * @param {Object} props - The function props.
+ * @param {number} props.usdValue - The value in USD.
+ * @param {string} props.currency - The target currency ("USDC", "ETH", "TON", or custom).
+ * @returns {number} The converted value in the target currency.
+ */
+export function convertCurrency({ usdValue, currency }: Props): number {
+  try {
+    // Retrieve the price index from the store
+    const { priceIndex }: any = usePriceIndexStore();
 
-  const equivalentValues: EquivalentValues = {
-    eth: usdValue / exchangeRates.eth,
-    usdc: usdValue / exchangeRates.usdc,
-    ton: usdValue / exchangeRates.ton,
-  };
+    // If price index is not available, return the original value
+    if (!priceIndex) {
+      return usdValue;
+    }
 
-  return equivalentValues;
+    // Convert the currency to lowercase for consistent comparison
+    const actualCurrency = currency.toLowerCase();
+
+    // Get the exchange rate for the target currency
+    const exchangeRate = priceIndex[actualCurrency].usd;
+
+    // Calculate the equivalent value in the target currency
+    const equivalentValue = usdValue / exchangeRate;
+
+    // Return the converted value with 2 decimal places
+    return Number(equivalentValue.toFixed(2));
+  } catch (e) {
+    // Handle any errors by returning the original value
+    return usdValue;
+  }
 }
