@@ -45,7 +45,7 @@ const RefinementList = (props: RefinementListProps) => {
             <ControlledSearchBox
               inputRef={inputRef}
               placeholder={props.searchablePlaceholder}
-              isSearchStalled={false}
+              issearchstalled={false}
               onChange={(event) => {
                 const target = event.target as HTMLInputElement;
                 setQuery(target?.value);

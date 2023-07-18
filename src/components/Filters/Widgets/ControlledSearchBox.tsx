@@ -2,7 +2,7 @@ import { ChangeEvent, ComponentProps, FormEvent, RefObject } from "react";
 
 export type ControlledSearchBoxProps = ComponentProps<"div"> & {
   inputRef: RefObject<HTMLInputElement>;
-  isSearchStalled: boolean;
+  issearchstalled: boolean;
   onChange: (event: ChangeEvent) => void;
   onReset: (event: FormEvent) => void;
   onSubmit?: (event: FormEvent) => void;

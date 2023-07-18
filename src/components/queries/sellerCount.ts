@@ -3,9 +3,9 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { axios } from "@/lib/axios";
 import { RecentOrders } from "@/types/Orders";
 
-interface RecentOrdersResponse {
+type RecentOrdersResponse = {
   recentOrders: RecentOrders;
-}
+};
 const fetchCurrentUser = async ({
   pageParam = 1, // needed to paginated
   count,

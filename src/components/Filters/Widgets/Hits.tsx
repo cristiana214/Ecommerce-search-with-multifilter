@@ -13,7 +13,7 @@ export type ItemProps = Item & {
 };
 
 export const Hit = ({ hit }: { hit: ItemProps }) => (
-  <div className="hover:bg-skin-main rounded-xl p-6">
+  <div className="hover:bg-skin-main rounded-xl p-6" key={hit.itemId}>
     <Link
       href={`${process.env.NEXT_PUBLIC_STORE_URL}/product/${convertToURLFormat(
         hit.name,
@@ -22,6 +22,7 @@ export const Hit = ({ hit }: { hit: ItemProps }) => (
       rel="noopener noreferrer"
       className="flex h-full flex-col gap-2"
       title={hit.name}
+      key={hit.itemId}
     >
       <div className="relative aspect-square overflow-hidden rounded-xl shadow-md shadow-black/20">
         <BlurImage
@@ -36,24 +37,6 @@ export const Hit = ({ hit }: { hit: ItemProps }) => (
       <div className="font-poppins line-clamp-2 text-sm font-bold text-skin-primary md:text-base">
         {hit.name}
       </div>
-      {/* <div className="text-sm font-semibold text-skin-secondary md:text-sm">
-        {` ${hit.price} ${hit.preferredCurrency}`}
-      </div>
-      <div className="text-xs font-normal text-skin-secondary md:text-xs">
-        {` ${hit.price} USD`}
-      </div> */}
-      {/* <div className="text-xs font-semibold text-gray-400 md:text-sm">
-        {hit.currencyAccepting.filter((item) => item !== hit.preferredCurrency)
-          .length > 0 && (
-          <>
-            or pay{" "}
-            {hit.currencyAccepting
-              .filter((item) => item !== hit.preferredCurrency)
-              .join(", ")}
-          </>
-        )}
-      </div> */}
-
       <Price item={hit} />
     </Link>
   </div>

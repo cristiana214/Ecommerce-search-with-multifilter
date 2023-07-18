@@ -14,7 +14,7 @@ const Header = () => {
     if (data) {
       setPriceIndex(data);
     }
-  }, [data]);
+  }, [data, setPriceIndex]);
 
   return (
     <nav
