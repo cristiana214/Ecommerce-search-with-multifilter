@@ -6,7 +6,7 @@ export interface Item {
   quantity: number | null;
   price: number;
   currencyAccepting: string[];
-  category: string;
+  category: string[];
   metadata: any; // Update the type according to the actual structure
   variants: {
     options: {

@@ -21,6 +21,11 @@ export const convertToTitleCase = (str: string): string => {
  */
 export const convertToURLFormat = (str: string): string => {
   if (!str) return "";
-  // Convert to lowercase and replace spaces with dashes
-  return str?.toString().toLowerCase().replaceAll(/\s+/g, "-");
+  // Remove special characters using regex and replace spaces with dashes
+  const convertedString = str
+    .toString()
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replaceAll(/\s+/g, "-");
+  return convertedString;
 };
