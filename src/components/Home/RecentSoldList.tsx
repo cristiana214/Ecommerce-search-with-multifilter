@@ -1,7 +1,7 @@
 import { useInView } from "react-cool-inview";
-import { useInfiniteRecentOrders } from "./queries/infiniteRecentOrders";
-import { Spinner } from "../UI/Spinner";
-import { BlurImage } from "../Shared/BlurImage";
+import { useInfiniteRecentOrders } from "@/components/queries/infiniteRecentOrders";
+import { Spinner } from "@/components/UI/Spinner";
+import { BlurImage } from "@/components/Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
 
 const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
@@ -25,11 +25,11 @@ const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
       {recentOrders.map((order) => {
         return (
           <div className="w-full p-2 " key={order.id}>
-            <div className="flex h-full items-center rounded-lg border border-main-700 bg-slate-800 p-4">
+            <div className="flex h-full items-center rounded-md border border-main-700 bg-slate-800 p-4">
               <BlurImage
                 width={100}
                 height={100}
-                className="mr-4 h-16 w-16 flex-shrink-0 rounded-e rounded-l bg-main-50 object-cover object-center !duration-200 ease-out group-hover:scale-105"
+                className="mr-4 h-16 w-16 flex-shrink-0 rounded-md bg-main-50 object-cover object-center !duration-200 ease-out group-hover:scale-105"
                 loader={({ src }) => src}
                 src={getImageUrl({ path: order.Item.image[0], size: 135 })}
                 alt={order.Item.name}
@@ -52,14 +52,6 @@ const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
           </div>
         );
       })}
-
-      {/* Pagination controls */}
-      <button
-        disabled={!hasNextPage || isLoading}
-        onClick={() => fetchNextPage()}
-      >
-        {isLoading ? <Spinner size="sm" /> : "Load More"}
-      </button>
 
       {
         <span ref={observe} className="flex justify-center p-5">

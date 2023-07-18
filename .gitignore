@@ -6,9 +6,10 @@
 .pnp.js
 package-lock.json
 
+/src/script-converter
 # testing
 /coverage
-
+/src/jsons
 # next.js
 /.next/
 /out/

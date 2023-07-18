@@ -1,10 +1,15 @@
 import { useInView } from "react-cool-inview";
-import { useInfiniteRecentOrders } from "./queries/infiniteRecentOrders";
-import { Spinner } from "../UI/Spinner";
-import { BlurImage } from "../Shared/BlurImage";
+import { useInfiniteRecentOrders } from "@/components/queries/infiniteRecentOrders";
+import { Spinner } from "@/components/UI/Spinner";
+import { BlurImage } from "@/components/Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
+import Link from "next/link";
+import { convertToURLFormat } from "@/lib/helperText";
+import Price from "../Products/Price";
 
 const HotList = ({ pageSize }: { pageSize: number }) => {
+  // todo
+  //still using the recently ordered convert it to hot list
   const { data, fetchNextPage, hasNextPage, isLoading, isError, error } =
     useInfiniteRecentOrders({ count: pageSize });
 
@@ -24,17 +29,26 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
     <div className="h-200 -m-4 flex flex-wrap ">
       {recentOrders.map((order) => {
         return (
-          <div className="w-full rounded border-gray-900 p-4 md:w-1/2 lg:w-1/3">
-            <a className="relative block h-48 overflow-hidden  ">
+          <div className="w-full rounded-md border-gray-900 p-4 md:w-1/2 lg:w-1/3">
+            <Link
+              className="relative block h-48 overflow-hidden"
+              href={`${
+                process.env.NEXT_PUBLIC_STORE_URL
+              }/product/${convertToURLFormat(order.Item.name)}-${
+                order.Item.id
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <BlurImage
                 width={100}
                 height={100}
-                className="mr-4  block h-full w-full flex-shrink-0 rounded-e rounded-l bg-gray-100 object-cover object-center !duration-200 ease-out group-hover:scale-105"
+                className="mr-4  block h-full w-full flex-shrink-0 rounded-md bg-gray-100 object-cover object-center !duration-200 ease-out group-hover:scale-105"
                 loader={({ src }) => src}
                 src={getImageUrl({ path: order.Item.image[0], size: 374 })}
                 alt={order.Item.name}
               />
-            </a>
+            </Link>
             <div className="mt-4">
               <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500 ">
                 {order.Item.category}
@@ -42,9 +56,7 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
               <h2 className="title-font text-lg font-medium text-gray-200">
                 {order.Item.name}
               </h2>
-              <p className="mt-1">
-                {order.Item.price} {order.Item.preferredCurrency}{" "}
-              </p>
+              <Price item={order.Item} />
             </div>
           </div>
         );
