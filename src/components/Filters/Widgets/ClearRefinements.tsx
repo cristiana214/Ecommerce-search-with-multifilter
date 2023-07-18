@@ -4,7 +4,7 @@ import {
   UseClearRefinementsProps,
 } from "react-instantsearch-hooks-web";
 
-import { Button } from "../../UI/Button";
+import { Button } from "../../UI/button";
 
 export type ClearRefinementsProps = ComponentProps<"button"> &
   UseClearRefinementsProps;
