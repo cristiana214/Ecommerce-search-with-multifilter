@@ -30,10 +30,6 @@ const Filters = ({ children, title }: Props) => {
 
           {/* content */}
           <section className="grid grid-cols-1 sm:gap-6 lg:grid-cols-12">
-            <div className="flex items-center gap-4 py-6 lg:hidden">
-              <SearchBox className="w-full" placeholder="Search" />
-            </div>
-
             {/* desktop -- search and filters */}
             <DesktopFilter />
 

@@ -51,6 +51,7 @@ export default function Home() {
         <GridItemSix className="bg-main-950">
           <section className="body-font text-gray-600">
             <div className="container mx-auto px-5 py-24">
+              <h2>Hot list</h2>
               <HotList pageSize={10} />
             </div>
           </section>
@@ -58,6 +59,7 @@ export default function Home() {
         {/* tab recent list and sold */}
         <GridItemSix className="bg-main-800">
           <section className="body-font text-gray-500">
+            <h2>Recently Sold</h2>
             <div className="container mx-auto px-5 py-10">
               <RecentSoldList pageSize={10} />
             </div>

@@ -88,7 +88,6 @@ const Navbar = () => {
             >
               <span className="sr-only">Open sidebar</span>
               <FaBars className="h-6 w-6 bg-slate-100" />
-              hahah
             </button>
             <Link href="/" className="flex flex-shrink-0 items-center gap-2">
               <div className="relative h-8 w-8 overflow-hidden rounded text-slate-300">

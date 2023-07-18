@@ -1,10 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { FaTimes } from "react-icons/fa";
+import { usePriceIndex } from "@/components/queries/priceIndex";
+import usePriceIndexStore from "@/components/store/usePriceIndexStore";
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { data } = usePriceIndex();
+  const { setPriceIndexData } = usePriceIndexStore();
+  useEffect(() => {
+    if (data) {
+      setPriceIndexData(data);
+    }
+  }, [data]);
 
   return (
     <nav
@@ -49,32 +58,57 @@ const Header = () => {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className="absolute right-0 top-1 -mr-10">
-                    <button
-                      type="button"
-                      className="flex h-10 w-10 items-center justify-center rounded "
-                      onClick={() => setSidebarOpen(false)}
-                    >
-                      <span className="sr-only">Close sidebar</span>
-                      <FaTimes className="h-6 w-6 text-slate-100" />
-                    </button>
+                  <div className="">
+                    <div className="absolute right-0 top-1 -mr-10">
+                      <button
+                        type="button"
+                        className="flex h-10 w-10 items-center justify-center rounded "
+                        onClick={() => setSidebarOpen(false)}
+                      >
+                        <span className="sr-only">Close sidebar</span>
+                        <FaTimes className="h-6 w-6 text-slate-100" />
+                      </button>
+                    </div>
                   </div>
                 </Transition.Child>
-                <Link
-                  href="/"
-                  className="bg-skin-main flex items-center gap-2 p-4"
-                >
-                  <div className="relative h-8 w-8 overflow-hidden rounded">
-                    <Image
-                      loader={({ src }) => src}
-                      src="https://avatars.githubusercontent.com/u/122364922?s=400"
-                      alt="bg"
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                </Link>
+                <>
+                  <Link
+                    href="/"
+                    className="bg-skin-main flex items-center gap-2 p-4"
+                  >
+                    <div className="relative h-8 w-8 overflow-hidden rounded">
+                      <Image
+                        loader={({ src }) => src}
+                        src="https://avatars.githubusercontent.com/u/122364922?s=400"
+                        alt="bg"
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center"
+                      />
+                    </div>
+                  </Link>
+                  <ul
+                    className="my-0 box-border flex flex-row flex-wrap justify-center pl-0 pt-2 md:flex-row md:py-0"
+                    style={{ listStyle: "none" }}
+                  >
+                    <li
+                      className="box-border w-1/2 flex-none text-left md:w-auto md:flex-none"
+                      style={{ listStyle: "outside none none" }}
+                    >
+                      <Link
+                        className="box-border block cursor-pointer px-1 py-2 text-white hover:text-main-300 focus:text-white md:px-2"
+                        href="/category/"
+                        style={{
+                          textDecoration: "none",
+                          transition: "none 0s ease 0s",
+                          listStyle: "outside none none",
+                        }}
+                      >
+                        Advance Filter
+                      </Link>
+                    </li>
+                  </ul>
+                </>
               </Dialog.Panel>
             </Transition.Child>
             <div className="w-10 flex-shrink-0"></div>
@@ -133,7 +167,7 @@ const Header = () => {
             style={{ listStyle: "outside none none" }}
           >
             <Link
-              className="box-border block cursor-pointer px-1 py-2 font-semibold text-white hover:text-main-300 focus:text-white md:px-2"
+              className="box-border block  cursor-pointer px-1 py-2 font-semibold text-white hover:text-main-300 focus:text-white md:px-2"
               aria-current="page"
               href="/"
               style={{

@@ -19,7 +19,7 @@ const Category: NextPage = () => {
         <GridItemTwelve>
           {/* reusable advance filter */}
           <Filters title="Advance Filter">
-            <Configure hitsPerPage={30} />
+            <Configure hitsPerPage={25} />
           </Filters>
         </GridItemTwelve>
       </GridLayout>
