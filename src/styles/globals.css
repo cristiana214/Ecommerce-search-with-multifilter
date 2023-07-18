@@ -101,4 +101,8 @@ body {
   .hoverTitle {
     @apply hover:text-main-300 group-hover:text-main-300 cursor-pointer;
   }
+  .tag {
+    @apply text-[rgb(130,134,137)] text-sm font-medium px-[7px] py-[3px] rounded-md;
+    background:#c8c8c8;
+  }
 }

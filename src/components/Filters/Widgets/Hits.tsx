@@ -38,6 +38,20 @@ export const Hit = ({ hit }: { hit: ItemProps }) => (
         {hit.name}
       </div>
       <Price item={hit} />
+      <div className="text-xs font-normal">
+        {hit?.category.length
+          ? hit?.category
+              .filter((category: string) => category !== "")
+              .map((category: string, index: number) => (
+                <span
+                  key={index}
+                  className=" tag mr-1 mt-1 inline-block max-w-max md:text-xs"
+                >
+                  {category}
+                </span>
+              ))
+          : null}
+      </div>
     </Link>
   </div>
 );
