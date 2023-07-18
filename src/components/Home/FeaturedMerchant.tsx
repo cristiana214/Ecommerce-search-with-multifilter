@@ -8,7 +8,7 @@ const FeatureMerchant = () => {
           src="https://dummyimage.com/720x600"
         />
         <div className="w-full text-center lg:w-2/3">
-          <h1 className="title-font mb-2 text-3xl font-medium text-gray-100 sm:text-4xl">
+          <h1 className="title-font mb-2 text-3xl font-medium text-gray-100 sm:text-4xl ">
             Lorem ipsum dolor{" "}
           </h1>
           <p className="mb-4 leading-relaxed text-zinc-400">
