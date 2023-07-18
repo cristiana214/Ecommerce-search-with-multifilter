@@ -3,11 +3,15 @@ import usePriceIndexStore from "@/components/store/usePriceIndexStore";
 /**
  * Convert a value from USD to the specified currency using the price index.
  *
- * @param {Object} props - The function props.
+
  * @param {number} props.usdValue - The value in USD.
  * @param {string} props.currency - The target currency ("USDC", "ETH", "TON", or custom).
  * @returns {number} The converted value in the target currency.
  */
+type Props = {
+  usdValue: number;
+  currency: "USDC" | "ETH" | "TON" | string;
+};
 export function convertCurrency({ usdValue, currency }: Props): number {
   try {
     // Retrieve the price index from the store
