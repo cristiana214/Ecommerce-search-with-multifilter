@@ -33,4 +33,5 @@ export const usePriceIndex = () =>
     queryFn: () => {
       return fetchPriceIndex();
     },
+    staleTime: 10 * 60 * 1000, // Set the stale time to 10 minutes (10 * 60 * 1000 milliseconds)
   });

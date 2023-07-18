@@ -31,7 +31,7 @@ const MainLayout = ({ children, className }: Props) => (
     </Head>
     <div className={` sticky min-h-full  ${className}`}>
       <Header />
-      <main className="">{children}</main>
+      <main>{children}</main>
     </div>
   </>
 );
