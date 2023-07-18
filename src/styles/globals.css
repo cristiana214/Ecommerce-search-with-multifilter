@@ -98,4 +98,7 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .hoverTitle {
+    @apply hover:text-main-300 group-hover:text-main-300 cursor-pointer;
+  }
 }
