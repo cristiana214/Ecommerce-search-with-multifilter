@@ -34,6 +34,7 @@ export function convertCurrency({
     const equivalentValue = usdValue / exchangeRate;
 
     // Return the converted value with 2 decimal places
+    if (actualCurrency === "eth") return Number(equivalentValue.toFixed(4));
     return Number(equivalentValue.toFixed(2));
   } catch (e) {
     // Handle any errors by returning the original value
