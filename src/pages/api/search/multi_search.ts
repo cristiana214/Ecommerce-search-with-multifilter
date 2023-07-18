@@ -4,11 +4,11 @@ import nc from "next-connect";
 import Typesense from "typesense";
 
 import { json } from "body-parser";
-const typesenseClient = new Typesense.Client({
-  apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY || "",
+const searchClient = new Typesense.Client({
+  apiKey: process.env.SEARCH_API_KEY || "",
   nodes: [
     {
-      host: process.env.NEXT_PUBLIC_TYPESENSE_HOST || "",
+      host: process.env.SEARCH_HOST || "",
       port: 443,
       protocol: "https",
     },
@@ -38,7 +38,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
       }
       const { searches }: { searches: SearchRequest[] } = body;
       const searchPromises = searches.map(async (search: any) => {
-        const searchResults = await typesenseClient
+        const searchResults = await searchClient
           .collections("category")
           .documents()
           .search(search);

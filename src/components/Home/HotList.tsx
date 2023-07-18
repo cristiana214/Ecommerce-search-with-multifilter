@@ -3,8 +3,12 @@ import { useInfiniteRecentOrders } from "@/components/queries/infiniteRecentOrde
 import { Spinner } from "@/components/UI/Spinner";
 import { BlurImage } from "@/components/Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
+import Link from "next/link";
+import { convertToURLFormat } from "@/lib/helperText";
 
 const HotList = ({ pageSize }: { pageSize: number }) => {
+  // todo
+  //still using the recently ordered convert it to hot list
   const { data, fetchNextPage, hasNextPage, isLoading, isError, error } =
     useInfiniteRecentOrders({ count: pageSize });
 
@@ -25,7 +29,16 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
       {recentOrders.map((order) => {
         return (
           <div className="w-full rounded-md border-gray-900 p-4 md:w-1/2 lg:w-1/3">
-            <a className="relative block h-48 overflow-hidden  ">
+            <Link
+              className="relative block h-48 overflow-hidden"
+              href={`${
+                process.env.NEXT_PUBLIC_STORE_URL
+              }/product/${convertToURLFormat(order.Item.name)}-${
+                order.Item.id
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <BlurImage
                 width={100}
                 height={100}
@@ -34,7 +47,7 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
                 src={getImageUrl({ path: order.Item.image[0], size: 374 })}
                 alt={order.Item.name}
               />
-            </a>
+            </Link>
             <div className="mt-4">
               <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500 ">
                 {order.Item.category}

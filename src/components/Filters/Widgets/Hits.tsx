@@ -5,6 +5,7 @@ import { ComponentProps } from "react";
 import { Item } from "@/types/Orders";
 import { BlurImage } from "@/components/Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
+import { convertToURLFormat } from "@/lib/helperText";
 
 export type ItemProps = Item & {
   itemId: number;
@@ -13,7 +14,11 @@ export type ItemProps = Item & {
 export const Hit = ({ hit }: { hit: ItemProps }) => (
   <div className="hover:bg-skin-main rounded-xl p-6">
     <Link
-      href={hit.name}
+      href={`${process.env.NEXT_PUBLIC_STORE_URL}/product/${convertToURLFormat(
+        hit.name,
+      )}-${hit.itemId}`}
+      target="_blank"
+      rel="noopener noreferrer"
       className="flex h-full flex-col gap-2"
       title={hit.name}
     >

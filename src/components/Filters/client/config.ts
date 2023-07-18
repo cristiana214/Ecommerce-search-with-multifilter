@@ -15,9 +15,8 @@ const adapter = new TypesenseInstantSearchAdapter({
   additionalSearchParameters: {
     query_by: "name,description",
     include_fields:
-      "name,image,description,currencyAccepting,price,mainCategory,preferredCurrency",
+      "name,image,description,currencyAccepting,price,mainCategory,preferredCurrency,itemId",
   },
 });
-console.log(adapter);
 
 export const { searchClient } = adapter;

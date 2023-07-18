@@ -7,6 +7,7 @@ import Filters from "@/components/Filters";
 import MainLayout from "@/components/MainLayout";
 import { useRouter } from "next/router";
 import { convertToTitleCase, convertToURLFormat } from "@/lib/helperText";
+import Head from "next/head";
 
 const EachCategory: NextPage = () => {
   const router = useRouter();
@@ -35,6 +36,12 @@ const EachCategory: NextPage = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>{`Filter category by ${convertToTitleCase(
+          categoryURL?.toString() || "",
+        )}`}</title>
+        <meta name="description" content="" />
+      </Head>
       <GridLayout className="max-w-screen-xl">
         <GridItemTwelve>
           <Filters title={convertToTitleCase(url)}>

@@ -6,14 +6,19 @@ import { GridItemTwelve, GridLayout } from "@/components/GridLayout";
 import MainLayout from "@/components/MainLayout";
 
 import Filters from "@/components/Filters";
+import Head from "next/head";
 
 const Category: NextPage = () => {
   return (
     <MainLayout>
+      <Head>
+        <title>Advance Filter | Marketplace</title>
+        <meta name="description" content="" />
+      </Head>
       <GridLayout className="max-w-screen-xl">
         <GridItemTwelve>
           {/* reusable advance filter */}
-          <Filters>
+          <Filters title="Advance Filter">
             <Configure hitsPerPage={30} />
           </Filters>
         </GridItemTwelve>

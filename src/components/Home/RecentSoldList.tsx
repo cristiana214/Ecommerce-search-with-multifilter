@@ -53,14 +53,6 @@ const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
         );
       })}
 
-      {/* Pagination controls */}
-      <button
-        disabled={!hasNextPage || isLoading}
-        onClick={() => fetchNextPage()}
-      >
-        {isLoading ? <Spinner size="sm" /> : "Load More"}
-      </button>
-
       {
         <span ref={observe} className="flex justify-center p-5">
           <Spinner size="sm" />

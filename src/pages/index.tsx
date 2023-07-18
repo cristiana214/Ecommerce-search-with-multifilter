@@ -5,12 +5,20 @@ import HotList from "@/components/Home/HotList";
 import RecentSoldList from "@/components/Home/RecentSoldList";
 import Categories from "@/components/Home/Categories";
 import FeatureMerchant from "@/components/Home/FeaturedMerchant";
-
-const inter = Inter({ subsets: ["latin"] });
+import Head from "next/head";
 
 export default function Home() {
   return (
     <MainLayout>
+      <Head>
+        <title>
+          Fast Multi-Filtering Marketplace | Next.js React Project by Cristiana
+        </title>
+        <meta
+          name="description"
+          content="Experience a fast and efficient multi-filtering marketplace built with Next.js and React. Discover a wide range of products and seamlessly apply multiple filters to find exactly what you need."
+        />
+      </Head>
       <div className="grid grid-cols-12 ">
         <GridItemSix className="h-6/7 bg-main-100 py-4">
           <div className="w-200 items-center justify-between px-8 py-8">
@@ -32,7 +40,7 @@ export default function Home() {
         </GridItemSix>
         {/* categories */}
         <GridItemTwelve className="w-200 items-center justify-between bg-main-700 px-8 py-8">
-          Categories
+          <h2>Categories</h2>
           <section className="body-font text-gray-500">
             <div className="container mx-auto px-5 py-10">
               <Categories />
