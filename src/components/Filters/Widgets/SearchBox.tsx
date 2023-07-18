@@ -39,7 +39,7 @@ const SearchBox = (props: SearchBoxProps) => {
     <ControlledSearchBox
       className={props.className}
       inputRef={inputRef}
-      isSearchStalled={isSearchStalled}
+      issearchstalled={isSearchStalled}
       onChange={onChange}
       onReset={onReset}
       placeholder={props.placeholder}

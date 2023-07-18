@@ -29,7 +29,10 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
     <div className="h-200 -m-4 flex flex-wrap ">
       {recentOrders.map((order) => {
         return (
-          <div className="w-full rounded-md border-gray-900 p-4 md:w-1/2 lg:w-1/3">
+          <div
+            className="w-full rounded-md border-gray-900 p-4 md:w-1/2 lg:w-1/3"
+            key={order.id}
+          >
             <Link
               className="relative block h-48 overflow-hidden"
               href={`${

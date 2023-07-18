@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/inline-script-id */
 import Link from "next/link";
 import { ReactNode } from "react";
 import Image from "next/image";
@@ -12,23 +13,21 @@ interface Props {
 
 const MainLayout = ({ children, className }: Props) => (
   <>
-    <Head>
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-PJ339PFQRE"
-      ></Script>
-      <Script
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+    <Script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PJ339PFQRE"
+    ></Script>
+    <Script
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-PJ339PFQRE');
               `,
-        }}
-      />
-    </Head>
+      }}
+    />
     <div className={` sticky min-h-full  ${className}`}>
       <Header />
       <main>{children}</main>

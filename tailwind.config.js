@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -8,11 +9,6 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
-    backgroundImage: {
-      'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      'gradient-conic':
-        'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-    },
     container: {
       center: true,
       padding: "2rem",
@@ -58,7 +54,7 @@ module.exports = {
         'skin-primary':"#172310",
         'skin-secondary': "#364d28",
         'skin-border':"#88b665",
-        'main': {
+        main: {
           50: '#f3f8ed',
           100: '#e3efd8',
           200: '#c9e0b6',
@@ -70,18 +66,19 @@ module.exports = {
           800: '#364d28',
           900: '#304225',
           950: '#172310',
-      },dove: {
-        '50': '#f7f7f7',
-    '100': '#e3e3e3',
-    '200': '#c8c8c8',
-    '300': '#a4a4a4',
-    '400': '#818181',
-    '500': '#666666',
-    '600': '#515151',
-    '700': '#434343',
-    '800': '#383838',
-    '900': '#313131',
-    '950': '#000000',
+        },
+        dove: {
+        50: '#f7f7f7',
+        100: '#e3e3e3',
+        200: '#c8c8c8',
+        300: '#a4a4a4',
+        400: '#818181',
+        500: '#666666',
+        600: '#515151',
+        700: '#434343',
+        800: '#383838',
+        900: '#313131',
+        950: '#000000',
     },
 
       },
@@ -106,5 +103,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),require('prettier-plugin-tailwindcss')],
+  plugins: [require("tailwindcss-animate"),require("prettier-plugin-tailwindcss")],
 }

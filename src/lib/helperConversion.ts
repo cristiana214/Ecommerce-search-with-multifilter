@@ -1,4 +1,4 @@
-import usePriceIndexStore from "@/components/store/usePriceIndexStore";
+import { PriceIndex } from "@/types/PriceIndex";
 
 /**
  * Convert a value from USD to the specified currency using the price index.
@@ -11,12 +11,14 @@ import usePriceIndexStore from "@/components/store/usePriceIndexStore";
 type Props = {
   usdValue: number;
   currency: "USDC" | "ETH" | "TON" | string;
+  priceIndex: PriceIndex | any;
 };
-export function convertCurrency({ usdValue, currency }: Props): number {
+export function convertCurrency({
+  usdValue,
+  currency,
+  priceIndex,
+}: Props): number {
   try {
-    // Retrieve the price index from the store
-    const { priceIndex }: any = usePriceIndexStore();
-
     // If price index is not available, return the original value
     if (!priceIndex) {
       return usdValue;
