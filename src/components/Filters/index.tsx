@@ -2,7 +2,7 @@ import { Configure, Index, InstantSearch } from "react-instantsearch-hooks-web";
 
 import Pagination from "@/components/Filters/Widgets/Pagination";
 import DesktopFilter from "@/components/Filters/DesktopFilter";
-import { searchClient } from "@/components/Filters/clients/config";
+import { searchClient } from "@/components/Filters/client/config";
 import SearchBox from "@/components/Filters/Widgets/SearchBox";
 import Hits from "@/components/Filters/Widgets/Hits";
 
