@@ -56,7 +56,8 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         'skin-primary':"#172310",
-        'skin-secondary':"#364d28",
+        'skin-secondary': "#364d28",
+        'skin-border':"#88b665",
         'main': {
           50: '#f3f8ed',
           100: '#e3efd8',
