@@ -23,7 +23,10 @@ const Refinements = () => (
       attribute="category"
       searchable={false}
       searchablePlaceholder="Search category"
-      operator="and"
+      operator="or"
+      limit={10}
+      showMore
+      showMoreLimit={15}
     />
   </>
 );
