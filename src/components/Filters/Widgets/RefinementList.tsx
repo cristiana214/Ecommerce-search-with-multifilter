@@ -7,6 +7,7 @@ import { FaCheck } from "react-icons/fa";
 import clsx from "clsx";
 
 import { ControlledSearchBox } from "./ControlledSearchBox";
+import { Button } from "@/components/UI/button";
 
 export type RefinementListProps = ComponentProps<"div"> &
   UseRefinementListProps & {
@@ -38,7 +39,10 @@ const RefinementList = (props: RefinementListProps) => {
 
   return (
     <>
-      <span className="text-skin-primary">{props.label}</span>
+      {items?.filter((item) => item.value !== "").length > 0 ? (
+        <span className="text-skin-primary">{props.label}</span>
+      ) : null}
+
       <div className="relative">
         {props.searchable && (
           <div className="mb-4">
@@ -64,6 +68,7 @@ const RefinementList = (props: RefinementListProps) => {
         {props.searchable && isFromSearch && items.length === 0 && (
           <div className="py-2 pl-10 pr-4 text-sm text-skin-primary">
             No results found
+            {/* <Spinner size="sm" /> */}
           </div>
         )}
 
@@ -108,15 +113,18 @@ const RefinementList = (props: RefinementListProps) => {
             ))}
         </ul>
 
-        {props.showMore && (
-          <button
-            type="button"
-            disabled={!canToggleShowMore}
-            onClick={toggleShowMore}
-          >
-            {isShowingMore ? "Show less" : "Show more"}
-          </button>
-        )}
+        {props.showMore &&
+          items?.filter((item) => item.value !== "").length > 0 && (
+            <Button
+              className="text-sm"
+              type="button"
+              disabled={!canToggleShowMore}
+              onClick={toggleShowMore}
+              size="sm"
+            >
+              {isShowingMore ? "Show less" : "Show more"}
+            </Button>
+          )}
       </div>
     </>
   );
