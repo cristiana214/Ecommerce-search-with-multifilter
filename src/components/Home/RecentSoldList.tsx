@@ -3,8 +3,16 @@ import { useInfiniteRecentOrders } from "@/components/queries/infiniteRecentOrde
 import { Spinner } from "@/components/UI/Spinner";
 import { BlurImage } from "@/components/Shared/BlurImage";
 import { getImageUrl } from "@/lib/helperImage";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import { ClockIcon } from "lucide-react";
+import { convertCurrency } from "@/lib/helperConversion";
+import usePriceIndexStore from "../store/usePriceIndexStore";
+import { convertTrxtoShort } from "@/lib/helperText";
 
+dayjs.extend(relativeTime);
 const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
+  const { priceIndex }: any = usePriceIndexStore();
   const { data, fetchNextPage, hasNextPage, isLoading, isError, error } =
     useInfiniteRecentOrders({ count: pageSize });
 
@@ -34,19 +42,34 @@ const RecentSoldList = ({ pageSize }: { pageSize: number }) => {
                 src={getImageUrl({ path: order.Item.image[0], size: 135 })}
                 alt={order.Item.name}
               />
-              <div className="flex-grow">
+              <div className="w-2/6-md w-4/6 flex-grow ">
                 <h2 className="title-font font-medium text-gray-300">
                   {order.Item.name}
                 </h2>
-                <p className="text-gray-600">
-                  sold {order.currencyPaying} /{order.price}
-                </p>
+                <time className="flex text-xs">
+                  <ClockIcon className="mr-1 h-3 w-3" /> sold{" "}
+                  {dayjs(parseInt(order.pendingTimestamp) * 1000).fromNow()}
+                </time>
                 <a
                   href={`https://etherscan.io/tx/${order.txHash}`}
-                  className="text-gray-500"
+                  className="text-xs text-gray-500 hover:text-main-300"
                 >
-                  trx
+                  {convertTrxtoShort(order.txHash)}
                 </a>
+              </div>
+              <div className="flex-1  ">
+                <span className="text-xs text-gray-600   ">Sold for</span>
+                <p className="text-xs   ">
+                  {convertCurrency({
+                    usdValue: order.price,
+                    currency: order.currencyPaying,
+                    priceIndex: priceIndex,
+                  })}{" "}
+                  {order.currencyPaying}
+                </p>
+                <span className="mr-1  flex-1 text-xs  text-gray-600">
+                  {order.price} USD
+                </span>
               </div>
             </div>
           </div>
