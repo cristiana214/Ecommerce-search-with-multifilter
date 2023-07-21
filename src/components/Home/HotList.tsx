@@ -26,15 +26,12 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
 
   const recentOrders = data?.pages.flatMap((page) => page.data) || [];
   return (
-    <div className="h-200 -m-4 flex flex-wrap ">
-      {recentOrders.map((order) => {
+    // <div className="h-200 -m-4 flex flex-wrap ">
+    <>
+      {recentOrders?.map((order) => {
         return (
-          <div
-            className="w-full rounded-md border-gray-900 p-4 md:w-1/2 lg:w-1/3"
-            key={order.id}
-          >
+          <div className="rounded-xl p-6 hover:bg-slate-800" key={order.id}>
             <Link
-              className="relative block h-48 overflow-hidden"
               href={`${
                 process.env.NEXT_PUBLIC_STORE_URL
               }/product/${convertToURLFormat(order.Item.name)}-${
@@ -42,43 +39,54 @@ const HotList = ({ pageSize }: { pageSize: number }) => {
               }`}
               target="_blank"
               rel="noopener noreferrer"
+              className="flex h-full flex-col gap-2"
+              title={order.Item.name}
             >
-              <BlurImage
-                width={100}
-                height={100}
-                className="mr-4  block h-full w-full flex-shrink-0 rounded-md bg-gray-100 object-cover object-center !duration-200 ease-out group-hover:scale-105"
-                loader={({ src }) => src}
-                src={getImageUrl({ path: order.Item.image[0], size: 374 })}
-                alt={order.Item.name}
-              />
-            </Link>
-            <div className="mt-4">
-              <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500 ">
-                {order.Item.category}
-              </h3>
-              <h2 className="title-font text-lg font-medium text-gray-200">
+              <div className="relative aspect-square overflow-hidden rounded-xl shadow-md shadow-black/20">
+                <BlurImage
+                  width={400}
+                  height={400}
+                  className="mr-4  block h-full w-full flex-shrink-0 rounded-md bg-gray-100 object-cover object-center !duration-200 ease-out group-hover:scale-105"
+                  loader={({ src }) => src}
+                  src={getImageUrl({
+                    path: order?.Item.image[0]?.toString(),
+                    size: 456,
+                  })}
+                  alt={order.Item.name}
+                />
+              </div>
+              <div className="font-poppins line-clamp-2 text-sm font-bold text-gray-300 md:text-base">
                 {order.Item.name}
-              </h2>
-              <Price item={order.Item} />
-            </div>
+              </div>
+              <Price className="text-gray-600 " item={order.Item} />
+              <div className="text-xs font-normal">
+                {order.Item?.category.length
+                  ? order.Item?.category
+                      .toString()
+                      .split(",")
+                      .filter((category: string) => category !== "")
+                      .map((category: string, index: number) => (
+                        <span
+                          key={index}
+                          className=" tag mr-1 mt-1 inline-block max-w-max bg-slate-900 md:text-xs"
+                        >
+                          {category}
+                        </span>
+                      ))
+                  : null}
+              </div>
+            </Link>
           </div>
         );
       })}
-
-      {/* Pagination controls */}
-      <button
-        disabled={!hasNextPage || isLoading}
-        onClick={() => fetchNextPage()}
-      >
-        {isLoading ? <Spinner size="sm" /> : "Load More"}
-      </button>
 
       {
         <span ref={observe} className="flex justify-center p-5">
           <Spinner size="sm" />
         </span>
       }
-    </div>
+      {/* </div> */}
+    </>
   );
 };
 export default HotList;

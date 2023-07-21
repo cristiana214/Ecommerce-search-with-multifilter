@@ -13,7 +13,7 @@ export type ItemProps = Item & {
 };
 
 export const Hit = ({ hit }: { hit: ItemProps }) => (
-  <div className="hover:bg-skin-main rounded-xl p-6" key={hit.itemId}>
+  <div className="rounded-xl p-6 hover:bg-main-200" key={hit.itemId}>
     <Link
       href={`${process.env.NEXT_PUBLIC_STORE_URL}/product/${convertToURLFormat(
         hit.name,

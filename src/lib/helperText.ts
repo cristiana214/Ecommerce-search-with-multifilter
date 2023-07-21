@@ -29,3 +29,7 @@ export const convertToURLFormat = (str: string): string => {
     .replaceAll(/\s+/g, "-");
   return convertedString;
 };
+
+export const convertTrxtoShort = (transactionHash: string): string => {
+  return `${transactionHash.slice(0, 6)}...${transactionHash.slice(-4)}`;
+};

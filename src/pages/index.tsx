@@ -49,18 +49,22 @@ export default function Home() {
         </GridItemTwelve>
         {/* hotlist */}
         <GridItemSix className="bg-main-950">
-          <section className="body-font text-gray-600">
-            <div className="container mx-auto px-5 py-24">
-              <h2>Hot list</h2>
-              <HotList pageSize={10} />
-            </div>
-          </section>
+          <div className="">
+            <section className="body-font text-gray-600 ">
+              <div className="container mx-auto grid  grid-cols-2 px-5 py-4 sm:py-6 md:grid-cols-4 lg:grid-cols-3">
+                <h2>Hot list</h2>
+                <HotList pageSize={10} />
+              </div>
+            </section>
+          </div>
         </GridItemSix>
         {/* tab recent list and sold */}
         <GridItemSix className="bg-main-800">
           <section className="body-font text-gray-500">
             <h2>Recently Sold</h2>
             <div className="container mx-auto px-5 py-10">
+              {" "}
+              *
               <RecentSoldList pageSize={10} />
             </div>
           </section>
