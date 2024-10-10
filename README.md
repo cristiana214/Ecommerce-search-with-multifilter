@@ -1,6 +1,9 @@
- [Multi filtered Marketplace](https://store.web3n1.com/) project using React, NextJS, React Query, Zustand
+ [Multi filtered Marketplace](https://whatoplay.com/discover/) project using React, NextJS, React Query, Zustand 
+ 
+ 
+ Example of multi-filtered functionalities https://whatoplay.com/discover/
 
-
+ Example of search filtering by type  https://whatoplay.com/search/
 
 
 
